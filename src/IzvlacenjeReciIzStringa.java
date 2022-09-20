@@ -7,5 +7,6 @@ public class IzvlacenjeReciIzStringa {
        int a = Metode.PronadjiRec();
 
         System.out.println(a);
+        Metode.upisivanjeRezultata(a);
     }
 }

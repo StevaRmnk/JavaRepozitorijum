@@ -17,7 +17,6 @@ public class Metode {
         System.out.println("Unesite rec: ");
 
         String t = scanner.nextLine();
-        System.out.println(t);
         if(t.equals("")){
             t = null;
         }
