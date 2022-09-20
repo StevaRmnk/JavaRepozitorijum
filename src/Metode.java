@@ -1,7 +1,5 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Metode {
 
@@ -16,12 +14,25 @@ public class Metode {
         String s = "";
         String b = "";
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Unesite pocetni niz: ");
-//        while (scanner.hasNextLine()){
-//
-//        }
+        System.out.println("Unesite rec: ");
 
-        s = scanner.nextLine();
+        String t = scanner.nextLine();
+        System.out.println(t);
+        if(t.equals("")){
+            t = null;
+        }
+
+        upisivanjeReciZaPoredjenje(t);
+        List<String> ucitaniRezultati = ucitavanjeUnesenihPodataka();
+
+        for(String s1 : ucitaniRezultati){
+            if(t.equals(s1)){
+                s = s1;
+            }
+            else {
+                System.out.println("Nije pronadjena takva rec!");
+            }
+        }
 
 
         System.out.println("Unesite rec koju hocete da proverite da li se nalazi u prvom nizu: ");
@@ -52,6 +63,55 @@ public class Metode {
         }
 
         return maksimum;
+
+    }
+
+    public static void upisivanjeRezultata(int max){
+        try{
+            BufferedWriter upis = new BufferedWriter(new FileWriter(new File("src/rezultati.txt")));
+            upis.write(""+max);
+            upis.close();
+        }
+        catch (IOException e){
+            System.out.println("Doslo je do greske prilikom upisivanja!");
+        }
+    }
+
+    public static List<String> ucitavanjeUnesenihPodataka(){
+        List<String>pronadjeniStringovi = new ArrayList<>();
+        try {
+            File fajl = new File("src/upisivanjeVrednosti.txt");
+            Scanner scanner = new Scanner(fajl);
+            while (scanner.hasNextLine()){
+                String linijaKoda = scanner.nextLine();
+                pronadjeniStringovi.add(linijaKoda);
+            }
+
+        }
+        catch (FileNotFoundException error){
+            System.out.println("Doslo je do greske prilikom citanja fajla,fajl nije pronadjen. Pokusajte ponovo!");
+        }
+
+        return pronadjeniStringovi;
+    }
+
+    public static void upisivanjeReciZaPoredjenje(String rec){
+        try {
+            BufferedWriter upis = new BufferedWriter(new FileWriter(new File("src/upisivanjeVrednosti.txt")));
+            if(rec == null){
+                throw new NullPointerException();
+            }else {
+                upis.write(rec);
+                upis.close();
+            }
+        }
+
+        catch (IOException error){
+            System.out.println("Doslo je do greske tokom upisivanja vrednosti");
+        }
+        catch (NullPointerException error){
+            System.out.println("Nije upisana vrednost jer je null");
+        }
 
     }
 
