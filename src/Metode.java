@@ -48,19 +48,22 @@ public class Metode {
         HashMap<String,Integer> mapa = new HashMap<>();
 
         for (char a : nizOdB){
-            String l = "" + a;
+            String kljuc = "" + a;
 
-            if(mapa.containsKey(l)){
-                mapa.put(l,mapa.get(l)+1);
+            if(mapa.containsKey(kljuc)){
+                mapa.put(kljuc,mapa.get(kljuc)+1);
             }else {
-                mapa.put(l,1);
+                mapa.put(kljuc,1);
             }
         }
 
         for(Map.Entry<String,Integer> jednaStavkaMape : mapa.entrySet()){
-         maksimum = (izbrojOdredjenoSlovo(s, jednaStavkaMape.getKey())/jednaStavkaMape.getValue()) < maksimum ? izbrojOdredjenoSlovo(s, jednaStavkaMape.getKey()) : maksimum;
+            if((izbrojOdredjenoSlovo(s, jednaStavkaMape.getKey())/jednaStavkaMape.getValue()) < maksimum){
+                maksimum = izbrojOdredjenoSlovo(s, jednaStavkaMape.getKey())/jednaStavkaMape.getValue();
+            }else{
+                maksimum = maksimum;
+            }
         }
-
         return maksimum;
 
     }
