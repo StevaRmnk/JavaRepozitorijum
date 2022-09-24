@@ -1,0 +1,61 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>GetAllController</servlet-name>
+  	<display-name>GetAllController</display-name>
+  	<description></description>
+  	<servlet-class>com.example.GetAllController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>FormPairsController</servlet-name>
+  	<display-name>FormPairsController</display-name>
+  	<description></description>
+  	<servlet-class>com.example.FormPairsController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>GetAllResults</servlet-name>
+  	<display-name>GetAllResults</display-name>
+  	<description></description>
+  	<servlet-class>com.example.GetAllResults</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>GetOneController</servlet-name>
+  	<display-name>GetOneController</display-name>
+  	<description></description>
+  	<servlet-class>com.example.GetOneController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DeleteOneController</servlet-name>
+  	<display-name>DeleteOneController</display-name>
+  	<description></description>
+  	<servlet-class>com.example.DeleteOneController</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+  	<servlet-name>GetAllController</servlet-name>
+  	<url-pattern>/getAll</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>FormPairsController</servlet-name>
+  	<url-pattern>/formPairs</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>GetAllResults</servlet-name>
+  	<url-pattern>/getAllResults</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>GetOneController</servlet-name>
+  	<url-pattern>/findById</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteOneController</servlet-name>
+  	<url-pattern>/deleteById</url-pattern>
+  </servlet-mapping>
+  
+  
+</web-app>
