@@ -1,0 +1,38 @@
+<!Doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset = "UTF-8">
+		<title>Svi Jezici</title>
+		<style type="text/css">
+		table,th,td{border: 1px solid black;margin-left: auto;margin-right:auto}
+		body {text-align: center}
+		</style>
+	</head>
+	<body>
+	<h2 th:if="${ulogovan == true}">Usepsno ulogovani!</h2>
+		<h1>Svi jezici</h1>
+		
+		<div>
+		<h3>Pogledajte kako se kaze pozdrav svete na razlicitim jezicima</h3>
+		<h3>Izaberi jezik</h3>
+		<table>
+			<caption>Jezici</caption>
+			<tr>
+			<th>ImeJezika</th>
+			</tr>
+			<tr th:each = "jezik : ${sviJezici}">
+			<td ><a th:href="|/jezici/StranicaJednogJezika?imeJezika=${jezik.imeJezika}|" th:text = "${jezik.imeJezika}"></a></td>
+			</tr>
+		</table>
+	</div>
+	<br>
+	<label>Ulogujte se:</label>
+	<form action = "/korisnici/login" method="get">
+		<input type="text" name = "korisnickoIme" placeholder="Unesite korisnicko ime" required="required">
+		<input type="text" name = "lozinka" placeholder="Unesite lozinku" required="required">
+		<input type="submit" value="Ulogujte se">
+	</form>
+	
+	</body>
+</html>
